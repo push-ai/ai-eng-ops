@@ -1,9 +1,6 @@
 ---
-description: Pull request creation process and standards
-globs: ["**/*.md", "**/.github/**", "**/pull-requests/**"]
 alwaysApply: false
 ---
-
 # Pull Request Creation Rules
 
 ## PR Creation Workflow
