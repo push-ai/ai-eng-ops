@@ -96,28 +96,49 @@ Focuses on fundamental skills where AI often struggles:
 - **07-logging** - Setting up logging for faster root cause identification
 - **08-documentation** - Providing context through documentation to enable AI accuracy
 
-### Level 02: Features (Coming Soon)
-- API endpoints
-- React components
-- Database models
-- Service integrations
+### Level 02: Features ⚠️
+> **WARNING: THIS CONTENT HAS NOT BEEN REVIEWED YET, PROCEED WITH CAUTION**
 
-### Level 03: Multi-Component (Coming Soon)
-- Feature modules
-- Authentication flows
-- Data pipelines
-- API clients
+Focuses on building complete, production-ready features:
+- **01-api-endpoint** - Building RESTful API endpoints with proper structure
+- **02-react-component** - Creating React components with TypeScript
+- **03-database-model** - Designing database models with relationships
+- **04-service-integration** - Integrating with external services
 
-### Level 04: System-Level (Coming Soon)
-- Microservices
-- Full-stack features
-- Refactoring legacy code
-- Performance optimization
+See [level-02-features/README.md](level-02-features/README.md) for detailed documentation.
 
-### Level 05: Advanced (Coming Soon)
-- Distributed systems
-- Observability setup
-- Security hardening
+### Level 03: Multi-Component ⚠️
+> **WARNING: THIS CONTENT HAS NOT BEEN REVIEWED YET, PROCEED WITH CAUTION**
+
+Focuses on coordinating multiple components:
+- **01-feature-module** - Coordinating frontend and backend with shared types
+- **02-auth-flow** - Implementing authentication flows across services
+- **03-data-pipeline** - Creating data pipelines with multiple stages
+- **04-api-client** - Building API clients that coordinate multiple endpoints
+
+See [level-03-multi-component/README.md](level-03-multi-component/README.md) for detailed documentation.
+
+### Level 04: System-Level ⚠️
+> **WARNING: THIS CONTENT HAS NOT BEEN REVIEWED YET, PROCEED WITH CAUTION**
+
+Focuses on system-level architecture and design:
+- **01-microservices** - Designing microservices with clear boundaries
+- **02-full-stack** - Building full-stack applications
+- **03-legacy-refactor** - Refactoring legacy systems safely
+- **04-performance** - Optimizing system performance
+
+See [level-04-system-level/README.md](level-04-system-level/README.md) for detailed documentation.
+
+### Level 05: Advanced ⚠️
+> **WARNING: THIS CONTENT HAS NOT BEEN REVIEWED YET, PROCEED WITH CAUTION**
+
+Focuses on advanced patterns for complex systems:
+- **01-distributed-systems** - Designing distributed systems
+- **02-observability** - Implementing comprehensive observability
+- **03-security** - Hardening systems with security best practices
+- **04-optimization** - Advanced optimization techniques
+
+See [level-05-advanced/README.md](level-05-advanced/README.md) for detailed documentation.
 
 ## Principles Demonstrated
 
