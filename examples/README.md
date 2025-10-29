@@ -38,42 +38,42 @@ Agents coordinate across engineering domains using:
 
 ## Agent Implementation Patterns
 
-### Pattern 1: MCP-Triggered Code Reviews
+### Pattern 1: Automated Code Reviews
 **Use Case**: Automated PR reviews, code quality checks, security audits
 **How It Works**:
-1. PR created triggers agent via GitHub MCP integration
+1. PR created triggers agent (via webhook or tool integration)
 2. Agent retrieves coding standards and patterns from markdown files
-3. Agent analyzes code changes using GitHub MCP tools
-4. Agent checks test coverage via CI/CD MCP
+3. Agent analyzes code changes from version control
+4. Agent checks test coverage from CI/CD systems
 5. Agent generates review comments following team standards
 6. Agent suggests improvements with code examples
 
-### Pattern 2: MCP-Scheduled Test Generation
+### Pattern 2: Automated Test Generation
 **Use Case**: Automated test suite generation, coverage analysis, test maintenance
 **How It Works**:
-1. Agent runs on schedule or trigger via MCP automation
-2. Agent analyzes code changes using GitHub MCP
+1. Agent runs on schedule or trigger (via automation)
+2. Agent analyzes code changes from version control
 3. Agent reads testing strategy from markdown files
 4. Agent generates comprehensive test suites
-5. Agent verifies coverage via CI/CD MCP tools
+5. Agent verifies coverage from CI/CD systems
 6. Agent submits tests as part of PR or updates existing tests
 
-### Pattern 3: MCP-Workflow CI/CD Orchestration
+### Pattern 3: CI/CD Orchestration
 **Use Case**: Deployment automation, release management, rollback procedures
 **How It Works**:
-1. Agent manages deployment workflows using MCP integration
-2. Agent coordinates build, test, and deploy stages via CI/CD MCP
+1. Agent manages deployment workflows using tool integrations
+2. Agent coordinates build, test, and deploy stages via CI/CD systems
 3. Agent checks deployment readiness (tests, security scans)
-4. Agent executes deployment with monitoring via MCP tools
+4. Agent executes deployment with monitoring via integrations
 5. Agent tracks deployment status and alerts on issues
 6. Agent initiates rollback if critical issues detected
 
-### Pattern 4: MCP-Incident Response
+### Pattern 4: Incident Response
 **Use Case**: Production debugging, incident management, post-mortems
 **How It Works**:
-1. Alert triggers agent via monitoring MCP integration
+1. Alert triggers agent (via monitoring integration)
 2. Agent accesses runbooks and procedures from markdown files
-3. Agent pulls metrics and logs via monitoring MCP tools
+3. Agent pulls metrics and logs from monitoring systems
 4. Agent analyzes incident data and suggests root causes
 5. Agent generates incident report following team templates
 6. Agent documents post-mortem with learnings and action items
@@ -81,10 +81,10 @@ Agents coordinate across engineering domains using:
 ## Implementation Requirements
 
 ### Technical Setup
-- **AI Platform**: Claude, GPT-4, or other LLM with Model Context Protocol (MCP) support
-- **MCP Servers**: Standardized tool servers for engineering platforms (GitHub, CI/CD, monitoring)
-- **Context Access**: Real-time handbook context and template retrieval via MCP
-- **Tool Integration**: MCP-compliant connections to GitHub, CI/CD, monitoring systems
+- **AI Platform**: Claude, GPT-4, or other LLM with tool integration support
+- **Tool Integrations**: Connections to engineering platforms (GitHub, CI/CD, monitoring) via your AI platform's supported protocols
+- **Context Access**: Real-time handbook context and template retrieval from markdown files
+- **Version Control**: Git-based repository for version-controlled engineering knowledge
 - **Monitoring Tools**: Logging, performance tracking, and error handling
 
 ### Data Requirements

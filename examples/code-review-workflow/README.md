@@ -4,7 +4,7 @@ This example demonstrates how to implement an AI-powered code review workflow th
 
 ## Overview
 
-The automated code review workflow uses MCP integrations with GitHub to:
+The automated code review workflow uses tool integrations with GitHub to:
 - Analyze pull requests automatically
 - Check code against team standards
 - Generate review comments
@@ -16,7 +16,7 @@ The automated code review workflow uses MCP integrations with GitHub to:
 ```
 GitHub PR Created
     ↓
-MCP GitHub Integration
+Tool Integration (GitHub API)
     ↓
 AI Agent (with Handbook Context)
     ↓
@@ -29,9 +29,9 @@ Post: Comments on GitHub PR
 
 ## Setup
 
-### 1. Configure MCP GitHub Server
+### 1. Configure GitHub Integration
 
-Create `.cursor/mcp.json`:
+For Cursor IDE users, create `.cursor/mcp.json` to connect to GitHub:
 
 ```json
 {
@@ -57,7 +57,7 @@ Ensure these context files exist:
 ### 3. Configure GitHub Webhook (Optional)
 
 Set up a webhook to trigger on PR creation:
-- Webhook URL: Your MCP server endpoint
+- Webhook URL: Your agent endpoint or tool integration URL
 - Events: `pull_request.opened`, `pull_request.synchronize`
 
 ## Workflow Process
@@ -65,7 +65,7 @@ Set up a webhook to trigger on PR creation:
 ### Step 1: PR Analysis
 When a PR is created, the agent:
 1. Reads PR description and linked issues
-2. Fetches code changes via GitHub MCP
+2. Fetches code changes from GitHub (via API or tool integration)
 3. Understands change scope and complexity
 
 ### Step 2: Standards Check

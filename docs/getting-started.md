@@ -6,8 +6,8 @@ Welcome! This guide will help you get started with the AI Engineering Operations
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/britton-stamper/ai-eng-ops-with-mcp.git
-cd ai-eng-ops-with-mcp
+git clone https://github.com/push-ai/ai-eng-ops.git
+cd ai-eng-ops
 ```
 
 ### 2. Set Up Cursor IDE
@@ -15,9 +15,10 @@ cd ai-eng-ops-with-mcp
 2. Open the repository in Cursor
 3. Cursor will automatically detect the `.cursor/rules/` directory
 
-### 3. Configure MCP Servers (Optional)
-Create `.cursor/mcp.json` to connect to your engineering tools:
+### 3. Connect Your Engineering Tools (Optional)
+Connect to your engineering tools using your AI platform's supported integration methods. For Cursor IDE users, you can configure tool integrations via Model Context Protocol (MCP). See the main README for configuration details.
 
+**Example Configuration** (`.cursor/mcp.json` for Cursor IDE):
 ```json
 {
   "mcpServers": {
@@ -32,6 +33,8 @@ Create `.cursor/mcp.json` to connect to your engineering tools:
 }
 ```
 
+Note: Tool integrations are optional. The core value comes from structured markdown files and Cursor rules.
+
 ### 4. Customize for Your Team
 1. Update `contexts/standards/coding-standards.md` with your team's standards
 2. Review `.cursor/rules/*.mdc` files and adjust to your processes
@@ -43,7 +46,7 @@ Create `.cursor/mcp.json` to connect to your engineering tools:
 - [ ] Read the main [README.md](../README.md)
 - [ ] Review all Cursor rules in `.cursor/rules/`
 - [ ] Customize coding standards for your team
-- [ ] Set up at least one MCP server integration
+- [ ] (Optional) Set up tool integrations for your engineering stack
 
 ### Week 2: Integration
 - [ ] Try using AI to generate code following your standards
