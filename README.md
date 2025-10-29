@@ -20,6 +20,61 @@ This handbook empowers engineering teams to scale their operations using AI agen
 3. **🤖 Generate Code & Documentation**: Let AI create production-ready code, tests, and technical documentation that align with your team's standards
 4. **🔧 Iterate and Refine**: Continuously improve your templates and processes based on AI output and team feedback
 
+## 🎓 Quick Start: Learn by Example
+
+The fastest way to understand how AI engineering works is to **run through our examples** and see the principles in action.
+
+### Try an Example
+
+1. **Clone and Navigate**:
+   ```bash
+   git clone https://github.com/push-ai/ai-eng-ops.git
+   cd ai-eng-ops/examples/level-01-foundation/01-simple-function
+   ```
+2. **Explore the Problem**:
+   - Read `problem/README.md` to understand the scenario
+   - Run the code: `python problem/main.py`
+   - Identify what could be improved
+3. **Use the AI Prompt**:
+   - Copy the prompt from `PRINCIPLE.md`
+   - Give it to your AI assistant (Cursor, Copilot, etc.)
+   - Point AI to the `problem/` directory
+4. **Compare with Solution**:
+   - Review `solution/` to see example improvements
+   - Read `solution/EXPLANATION.md` to understand the changes
+   - Run the solution: `python solution/main.py`
+
+### Explore Related Content
+
+After trying an example, **connect it to real-world patterns**:
+
+- **📋 Templates** (`templates/`): Use standardized templates for code reviews, deployments, documentation, and more
+- **📚 Contexts** (`contexts/`): Reference engineering standards, architecture patterns, and best practices that guide AI behavior
+
+**Example Flow**:
+```bash
+# 1. Clone and run an example
+git clone https://github.com/push-ai/ai-eng-ops.git
+cd ai-eng-ops/examples/level-01-foundation/03-data-structure
+python problem/main.py
+
+# 2. See the principle
+cat PRINCIPLE.md  # Copy the prompt, use with AI
+
+# 3. Review related templates
+ls templates/code-review/  # See how to structure reviews
+
+# 4. Check contexts
+cat contexts/standards/code-quality.md  # See quality standards
+```
+
+**Recommended Starting Points**:
+- **`01-simple-function`**: Learn about taking basic code and enhancing with AI
+- **`03-data-structure`**: See how strong typing prevents AI spiraling out of control
+- **`08-documentation`**: Understand how documentation improves AI accuracy
+
+See the [examples README](examples/README.md) for all available examples and detailed usage instructions.
+
 ## 💡 Use Cases
 
 ### AI-Powered Code Reviews
