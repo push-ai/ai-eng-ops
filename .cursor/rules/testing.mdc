@@ -1,0 +1,196 @@
+---
+description: Testing process rules for test creation and TDD workflows
+globs: ["**/tests/**", "**/test/**", "**/spec/**", "**/*.test.*", "**/*.spec.*", "**/*.test.ts", "**/*.test.js", "**/*.spec.ts", "**/*.spec.js"]
+alwaysApply: false
+---
+
+# Testing Process Rules
+
+## Multi-Step Testing Workflow
+
+When creating or updating tests:
+
+### 1. **Requirements Analysis**
+- Understand what functionality needs to be tested
+- Identify the code paths to cover
+- Determine test types needed (unit, integration, e2e)
+- Review existing test patterns in the codebase
+
+### 2. **Test Strategy Design**
+- Choose appropriate testing approach (TDD, BDD, or test-after)
+- Plan test structure and organization
+- Identify test data requirements
+- Plan mocking and stubbing strategy
+
+### 3. **Test Implementation**
+- Write tests following team testing standards
+- Use descriptive test names that explain what is being tested
+- Follow Arrange-Act-Assert (AAA) pattern
+- Create helper functions for common test setup
+- Ensure tests are isolated and independent
+
+### 4. **Coverage Verification**
+- Verify minimum 80% code coverage for new code
+- Ensure edge cases and error paths are covered
+- Check that critical business logic has comprehensive tests
+- Verify integration points are tested appropriately
+
+### 5. **Test Execution**
+- Run tests locally before committing
+- Verify all tests pass consistently
+- Check test execution time (flag slow tests)
+- Ensure tests are deterministic (no flakiness)
+
+### 6. **Documentation & Maintenance**
+- Document complex test scenarios
+- Update tests when requirements change
+- Remove obsolete or duplicate tests
+- Keep test suite maintainable and readable
+
+## Testing Quality Standards
+
+### Test Naming Conventions
+- Use descriptive names: `describe('UserService', () => { ... })`
+- Include context: `it('should return error when user not found', () => { ... })`
+- Follow pattern: `[Function/Component] should [expected behavior] when [condition]`
+
+### Test Structure
+- **Arrange**: Set up test data and mocks
+- **Act**: Execute the code being tested
+- **Assert**: Verify expected outcomes
+- **Cleanup**: Restore state if needed
+
+### Test Coverage Requirements
+- **Unit Tests**: Minimum 80% coverage for new code
+- **Integration Tests**: Test critical integration points
+- **E2E Tests**: Cover critical user journeys
+- **Edge Cases**: Test boundary conditions and error scenarios
+
+### Test Best Practices
+- **One Assertion Per Test**: Focus each test on one behavior
+- **Test Independence**: Tests should not depend on each other
+- **Fast Execution**: Unit tests should run in milliseconds
+- **Clear Failure Messages**: Assertions should clearly explain failures
+- **Mock External Dependencies**: Don't depend on external services in unit tests
+
+## Test Types and When to Use
+
+### Unit Tests
+- **Purpose**: Test individual functions/methods in isolation
+- **When**: Always - for all business logic
+- **Requirements**: Fast, isolated, comprehensive
+- **Coverage**: All branches and edge cases
+
+### Integration Tests
+- **Purpose**: Test interaction between components
+- **When**: For critical integration points
+- **Requirements**: May be slower, can use test databases
+- **Coverage**: API contracts, database interactions, service integrations
+
+### End-to-End (E2E) Tests
+- **Purpose**: Test complete user workflows
+- **When**: For critical user journeys
+- **Requirements**: Full environment, can be slow
+- **Coverage**: Happy paths and critical error scenarios
+
+### Performance Tests
+- **Purpose**: Verify performance requirements
+- **When**: For performance-critical code paths
+- **Requirements**: Measure and track metrics
+- **Coverage**: Response times, throughput, resource usage
+
+## Testing Anti-Patterns to Avoid
+
+### Don't:
+- ❌ Test implementation details instead of behavior
+- ❌ Write tests that depend on execution order
+- ❌ Include business logic in test code
+- ❌ Ignore flaky tests or time-dependent tests
+- ❌ Write tests that require manual intervention
+- ❌ Create overly complex test setups
+- ❌ Test third-party library functionality
+
+### Do:
+- ✅ Test behavior and outcomes, not implementation
+- ✅ Keep tests simple and focused
+- ✅ Use factories or builders for test data
+- ✅ Make tests deterministic and repeatable
+- ✅ Mock external dependencies appropriately
+- ✅ Test error cases and edge conditions
+- ✅ Keep test setup minimal and clear
+
+## TDD Workflow (When Using TDD)
+
+### Red-Green-Refactor Cycle
+
+1. **Red**: Write a failing test first
+   - Test should fail for the right reason
+   - Test should describe desired behavior
+   - Don't write code yet
+
+2. **Green**: Write minimal code to pass
+   - Implement simplest solution
+   - Make test pass
+   - Don't optimize yet
+
+3. **Refactor**: Improve code quality
+   - Clean up implementation
+   - Remove duplication
+   - Ensure tests still pass
+
+## Test Maintenance
+
+### Regular Test Reviews
+- **Quarterly**: Review test suite effectiveness
+- **Identify**: Flaky or slow tests
+- **Remove**: Obsolete or duplicate tests
+- **Improve**: Complex or hard-to-understand tests
+
+### When Tests Fail
+- **Investigate**: Understand why test failed
+- **Fix Root Cause**: Don't just update test expectations
+- **Document Regions**: If test reveals unexpected behavior, document it
+- **Update Tests**: If requirements changed, update tests accordingly
+
+## Integration with CI/CD
+
+Tests integrate with CI/CD pipelines:
+- **Automated Execution**: All tests run on every commit
+- **Coverage Reporting**: Track coverage trends over time
+- **Failure Alerts**: Notify team when tests fail
+- **Parallel Execution**: Run tests in parallel when possible
+- **Test Caching**: Cache test dependencies to speed up runs
+
+## Test Examples Template
+
+```typescript
+describe('UserService', () => {
+  describe('getUserById', () => {
+    it('should return user when user exists', async () => {
+      // Arrange
+      const userId = '123';
+      const expectedUser = createMockUser({ id: userId });
+      mockUserRepository.findById.mockResolvedValue(expectedUser);
+
+      // Act
+      const result = await userService.getUserById(userId);
+
+      // Assert
+      expect(result).toEqual(expectedUser);
+      expect(mockUserRepository.findById).toHaveBeenCalledWith(userId);
+    });
+
+    it('should throw error when user not found', async () => {
+      // Arrange
+      const userId = '999';
+      mockUserRepository.findById.mockResolvedValue(null);
+
+      // Act & Assert
+      await expect(userService.getUserById(userId))
+        .rejects.toThrow('User not found');
+    });
+  });
+});
+```
+
+Remember: Good tests are a safety net that enables confident refactoring and faster development. Invest time in writing maintainable, clear tests that document expected behavior and catch regressions early.

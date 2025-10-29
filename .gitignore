@@ -1,0 +1,62 @@
+# Dependencies
+node_modules/
+vendor/
+venv/
+env/
+.venv/
+
+# Build outputs
+dist/
+build/
+*.pyc
+__pycache__/
+*.class
+*.jar
+*.war
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Testing
+coverage/
+.nyc_output/
+*.coverage
+.pytest_cache/
+.coverage
+
+# MCP Server configurations (may contain sensitive tokens)
+.cursor/mcp.local.json
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Secrets and credentials (be extra careful!)
+*.pem
+*.key
+*.cert
+secrets/
+credentials/
+

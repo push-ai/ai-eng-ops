@@ -1,0 +1,262 @@
+---
+description: Deployment and CI/CD process rules
+globs: ["**/.github/workflows/**", "**/.gitlab-ci.yml", "**/ci/**", "**/deploy/**", "**/pipelines/**", "**/*.yml", "**/*.yaml"]
+alwaysApply: false
+---
+
+# Deployment Process Rules
+
+## Multi-Step Deployment Workflow
+
+When deploying code to any environment:
+
+### 1. **Pre-Deployment Validation**
+- Verify all tests pass locally
+- Ensure code review approval received
+- Check that CI/CD pipeline passed all stages
+- Verify security scans completed successfully
+- Confirm documentation is updated
+
+### 2. **Environment Preparation**
+- Select appropriate deployment environment (dev/staging/prod)
+- Verify environment health and availability
+- Check for active deployments or maintenance windows
+- Ensure rollback plan is documented and tested
+- Notify stakeholders of deployment schedule
+
+### 3. **Build & Package**
+- Build application artifacts
+- Run build-time tests and validations
+- Package dependencies correctly
+- Tag builds with version numbers
+- Store artifacts in artifact repository
+
+### 4. **Pre-Deployment Checks**
+- Run smoke tests against build artifacts
+- Verify database migrations (if applicable)
+- Check environment configuration
+- Validate secrets and environment variables
+- Ensure monitoring and alerting are configured
+
+### 5. **Deployment Execution**
+- Deploy to staging/preview environment first
+- Verify deployment success in staging
+- Run integration tests in staging
+- Obtain stakeholder approval for production
+- Deploy to production during low-traffic window (when possible)
+
+### 6. **Post-Deployment Verification**
+- Verify application health endpoints
+- Check application logs for errors
+- Monitor key metrics and alerting
+- Run smoke tests against production
+- Verify critical user journeys work
+
+### 7. **Monitoring & Rollback**
+- Monitor for 15-30 minutes post-deployment
+- Watch error rates and performance metrics
+- Be ready to rollback if issues detected
+- Document deployment results
+- Update deployment status dashboard
+
+## Deployment Quality Standards
+
+### Pre-Deployment Requirements
+- ✅ All automated tests pass
+- ✅ Code review approved
+- ✅ Security scans pass
+- ✅ No known critical bugs
+- ✅ Database migrations tested (if applicable)
+- ✅ Configuration changes documented
+- ✅ Rollback plan prepared
+
+### Deployment Best Practices
+- **Incremental Deployments**: Prefer small, frequent deployments over large releases
+- **Feature Flags**: Use feature flags for major changes
+- **Canary Deployments**: Gradually roll out to percentage of users when possible
+- **Blue-Green Deployments**: Use when zero-downtime is critical
+- **Database Migrations**: Plan backward-compatible migrations carefully
+
+### Environment-Specific Rules
+
+#### Development Environment
+- **Frequency**: Can deploy multiple times per day
+- **Approval**: Self-approval acceptable
+- **Testing**: Smoke tests sufficient
+- **Rollback**: Quick rollback acceptable
+
+#### Staging Environment
+- **Frequency**: Before production deployments
+- **Approval**: Peer review recommended
+- **Testing**: Full test suite required
+- **Rollback**: Document rollback process
+
+#### Production Environment
+- **Frequency**: Based on release schedule
+- **Approval**: Team lead/tech lead approval required
+- **Testing**: Full test suite + manual verification
+- **Rollback**: Tested rollback plan mandatory
+
+## CI/CD Pipeline Standards
+
+### Pipeline Stages
+
+1. **Lint & Format**
+   - Run linters and formatters
+   - Fail if code doesn't meet standards
+   - Auto-fix when possible
+
+2. **Unit Tests**
+   - Run all unit tests
+   - Generate coverage reports
+   - Fail if coverage below threshold
+
+3. **Build**
+   - Compile/build application
+   - Create artifacts
+   - Verify build success
+
+4. **Integration Tests**
+   - Run integration test suite
+   - Test API contracts
+   - Verify service integrations
+
+5. **Security Scans**
+   - Dependency vulnerability scanning
+   - Static code analysis
+   - Secrets detection
+
+6. **Deploy to Staging**
+   - Deploy to staging environment
+   - Run smoke tests
+   - Wait for approval
+
+7. **Deploy to Production**
+   - Deploy to production
+   - Verify deployment
+   - Monitor post-deployment
+
+### Pipeline Configuration Best Practices
+- **Caching**: Cache dependencies and build artifacts
+- **Parallel Execution**: Run independent stages in parallel
+- **Fast Feedback**: Fail fast on early-stage failures
+- **Notifications**: Alert on failures and successes
+- **Artifact Management**: Store and version artifacts
+
+## Rollback Procedures
+
+### When to Rollback
+- Critical errors in production
+- Performance degradation
+- Security vulnerabilities discovered
+- Data corruption risk
+- User-facing functionality broken
+
+### Rollback Process
+1. **Assess Impact**: Determine severity and scope
+2. **Notify Team**: Alert on-call engineer and team
+3. **Execute Rollback**: Deploy previous known-good version
+4. **Verify Rollback**: Confirm application health restored
+5. **Document**: Record what happened and why
+6. **Post-Mortem**: Schedule review meeting
+
+### Rollback Planning
+- **Version Tags**: Always tag production deployments
+- **Database Migrations**: Plan rollback for schema changes
+- **Data Backups**: Ensure backups before major changes
+- **Rollback Testing**: Test rollback procedure in staging
+- **Communication Plan**: Know who to notify and how
+
+## Monitoring & Observability
+
+### Pre-Deployment Monitoring Setup
+- Configure application health checks
+- Set up error rate alerts
+- Configure performance metric alerts
+- Verify log aggregation is working
+- Test alerting channels
+
+### Post-Deployment Monitoring
+- **Immediate** (0-5 minutes): Application startup, health endpoints
+- **Short-term** (5-30 minutes): Error rates, response times, throughput
+- **Medium-term** (30 min - 2 hours): User experience metrics, business metrics
+- **Long-term** (2+ hours): Trends, resource utilization, cost impact
+
+### Key Metrics to Monitor
+- **Error Rates**: 4xx/5xx response codes
+- **Latency**: P50, P95, P99 response times
+- **Throughput**: Requests per second
+- **Resource Usage**: CPU, memory, disk, network
+- **Business Metrics**: User actions, conversions, revenue
+
+## Deployment Documentation
+
+### Deployment Checklist
+- [ ] All tests passing
+- [ ] Code review approved
+- [ ] Security scans passed
+- [ ] Documentation updated
+- [ ] Migration plan reviewed (if applicable)
+- [ ] Rollback plan prepared
+- [ ] Stakeholders notified
+- [ ] Monitoring configured
+- [ ] Deployment window confirmed
+
+### Deployment Runbook Template
+```markdown
+# Deployment Runbook: [Feature Name]
+
+## Overview
+Brief description of what is being deployed
+
+## Prerequisites
+- Dependencies
+- Environment requirements
+- Access requirements
+
+## Deployment Steps
+1. Step 1
+2. Step 2
+...
+
+## Verification Steps
+- How to verify deployment success
+- Health check endpoints
+- Test scenarios
+
+## Rollback Steps
+1. How to rollback
+2. Data migration rollback (if applicable)
+3. Verification after rollback
+
+## Post-Deployment
+- Monitoring plan
+- Known issues
+- Follow-up tasks
+```
+
+## Emergency Deployments
+
+For urgent production fixes:
+1. **Expedite Review**: Fast-track code review process
+2. **Minimize Changes**: Deploy only critical fix
+3. **Increase Monitoring**: Enhanced monitoring and alerts
+4. **Follow-Up**: Schedule full review after emergency
+5. **Document**: Record why expedited process was used
+
+## Continuous Improvement
+
+### Post-Deployment Reviews
+- **Weekly**: Review deployment frequency and success rates
+- **Monthly**: Analyze deployment metrics and trends
+- **Quarterly**: Review and improve deployment processes
+- **After Incidents**: Update processes based on learnings
+
+### Process Optimization
+- Automate manual steps where possible
+- Reduce deployment time
+- Improve test coverage to catch issues earlier
+- Enhance monitoring and alerting
+- Document lessons learned
+
+Remember: Deployments should be routine, low-risk operations. Invest in automation, testing, and monitoring to make deployments boring and predictable. When deployments are stressful, it's a sign the process needs improvement.

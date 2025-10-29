@@ -1,0 +1,130 @@
+---
+description: Universal engineering operations standards
+globs: ["**/*"]
+alwaysApply: true
+---
+
+# General Engineering Operations Standards
+
+## Universal Process Principles
+
+### Multi-Step Approach Required
+For ANY complex engineering task:
+- **Break Down**: Divide work into 3-8 sequential, reviewable steps
+- **Document Progress**: Create deliverables at each major checkpoint
+- **Quality Gates**: Include testing, review, and validation at key milestones  
+- **Human Oversight**: Require approval before merging or deploying to production
+- **Learn & Iterate**: Document lessons learned and process improvements
+
+### Context-First Operations
+Before starting any engineering work:
+- **Read Relevant Context**: Check appropriate files in `/contexts/` directory
+- **Understand Existing Patterns**: Review similar implementations in codebase
+- **Align with Architecture**: Ensure work supports system design and standards
+- **Check Dependencies**: Identify related code, systems, or services
+- **Plan Impact**: Consider how changes affect other parts of the system
+
+## Quality Standards
+
+### Code Quality Requirements
+- **Test Coverage**: Minimum 80% coverage for new code, maintain or improve for modified code
+- **Linting & Formatting**: All code must pass team linting and formatting checks
+- **Security**: Security scans must pass before merging
+- **Documentation**: Public APIs and complex logic must be documented
+- **Performance**: Consider performance implications, especially for hot paths
+
+### Review & Validation Requirements
+- **Self-Review**: Review your own code before requesting peer review
+- **Test Execution**: Run all relevant tests locally before pushing
+- **Manual Testing**: Verify functionality manually when applicable
+- **CI/CD Validation**: Ensure all CI/CD checks pass before requesting review
+- **Documentation**: Update relevant documentation with code changes
+
+### Engineering Best Practices
+- **DRY Principle**: Don't Repeat Yourself - extract common patterns
+- **SOLID Principles**: Follow object-oriented design principles
+- **Error Handling**: Implement proper error handling and logging
+- **Defensive Programming**: Validate inputs and handle edge cases
+- **Code Readability**: Write self-documenting code with clear naming
+
+## Collaboration Standards
+
+### Team Communication
+- **Clear PR Descriptions**: Explain what, why, and how in pull requests
+- **Timely Responses**: Respond to review comments within 24 hours
+- **Constructive Feedback**: Provide specific, actionable feedback
+- **Knowledge Sharing**: Share learnings and document decisions
+- **Ask for Help**: Seek assistance when blocked instead of struggling alone
+
+### Code Review Processes
+- **Review Within 24 Hours**: Prioritize reviewing PRs from teammates
+- **Constructive Comments**: Provide specific, actionable feedback
+- **Approve When Ready**: Approve PRs that meet standards without blocking
+- **Request Changes Clearly**: Explain issues and suggest solutions
+- **Celebrate Good Work**: Acknowledge well-written code and good practices
+
+### Knowledge Sharing
+- **Document Decisions**: Record rationale for important architectural choices
+- **Share Learnings**: Communicate insights and best practices with team
+- **Update Processes**: Suggest improvements based on experience
+- **Mentor Others**: Support team members with guidance and examples
+- **Build on Previous Work**: Reference and extend existing patterns
+
+## Risk Management & Security
+
+### Security Standards
+- **Never Commit Secrets**: Use environment variables and secrets management
+- **Input Validation**: Validate and sanitize all user inputs
+- **Authorization Checks**: Verify permissions before sensitive operations
+- **Dependency Updates**: Keep dependencies updated and scan for vulnerabilities
+- **Security Reviews**: Request security review for authentication, authorization, and data handling changes
+
+### Error Prevention & Handling
+- **Validation**: Validate inputs and check preconditions
+- **Testing**: Write tests for critical paths and edge cases
+- **Rollback Plans**: Prepare rollback procedures for deployments
+- **Impact Assessment**: Consider potential consequences of changes
+- **Monitoring**: Set up alerts for critical errors and failures
+
+### Change Management
+- **Incremental Changes**: Prefer small, focused PRs over large changes
+- **Feature Flags**: Use feature flags for major changes when possible
+- **Backward Compatibility**: Maintain backward compatibility when possible
+- **Migration Plans**: Plan migrations for breaking changes
+- **Stakeholder Notification**: Communicate breaking changes to affected teams
+
+## Emergency & Exception Procedures
+
+### Urgent Fixes Handling
+For production-critical fixes:
+1. **Assess True Urgency**: Verify business impact and timeline constraints
+2. **Streamline Process**: Use abbreviated but still structured approach
+3. **Increase Communication**: More frequent updates and check-ins
+4. **Document Shortcuts**: Record any process steps skipped or compressed
+5. **Plan Follow-up**: Schedule comprehensive review after urgent need is met
+
+### Process Exceptions
+When standard process cannot be followed:
+1. **Document Reason**: Clear explanation of why exception is necessary
+2. **Identify Risks**: Potential negative consequences of deviation
+3. **Get Approval**: Team lead or tech lead authorization for process change
+4. **Minimize Impact**: Reduce scope of deviation to essential elements only
+5. **Return to Standard**: Resume normal process as soon as possible
+
+## Continuous Improvement
+
+### Regular Assessment
+- **Process Effectiveness**: Evaluate whether procedures achieve desired outcomes
+- **Efficiency Opportunities**: Identify steps that could be streamlined or automated
+- **Quality Metrics**: Monitor code quality, test coverage, and defect rates
+- **Team Feedback**: Regular input on process pain points and suggestions
+- **Industry Evolution**: Stay current with engineering best practices and new tools
+
+### Innovation & Adaptation
+- **Experiment Safely**: Try new approaches with appropriate safeguards
+- **Measure Results**: Compare outcomes of process changes to baseline
+- **Scale Success**: Implement effective improvements across appropriate areas
+- **Share Insights**: Communicate successful innovations with broader organization
+- **Stay Flexible**: Adapt processes as engineering needs and context evolve
+
+Remember: These standards provide a foundation for quality and consistency while allowing flexibility for specific engineering needs. Focus on principles over rigid rules, and always prioritize delivering value to users and maintaining system reliability.

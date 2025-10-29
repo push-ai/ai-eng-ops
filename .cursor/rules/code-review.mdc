@@ -1,0 +1,159 @@
+---
+description: Code review process for all pull requests
+globs: ["**/pull-requests/**", "**/reviews/**", "**/*.pr.md", "**/.github/pull_request_template.md"]
+alwaysApply: false
+---
+
+# Code Review Process Rules
+
+## Multi-Step Code Review Workflow
+
+When reviewing code in pull requests:
+
+### 1. **Initial Assessment**
+- Read PR description and understand the change's purpose
+- Review linked issues or tickets for context
+- Check if the change aligns with project goals
+- Assess the scope and complexity of changes
+
+### 2. **Code Standards Check**
+- Verify code follows team coding standards (reference `contexts/standards/coding-standards.md`)
+- Check naming conventions and code style consistency
+- Ensure proper code organization and file structure
+- Validate that code follows established patterns
+
+### 3. **Security & Vulnerability Scan**
+- Check for common security vulnerabilities:
+  - SQL injection risks
+  - XSS vulnerabilities
+  - Authentication/authorization bypasses
+  - Sensitive data exposure
+  - Insecure dependencies
+- Verify proper input validation and sanitization
+- Ensure secrets are not hardcoded or committed
+- Check for proper error handling that doesn't leak sensitive information
+
+### 4. **Functionality Review**
+- Verify the code implements requirements correctly
+- Check edge cases and error handling
+- Validate input/output behavior
+- Ensure proper integration with existing systems
+- Verify no breaking changes unless explicitly intended
+
+### 5. **Performance Impact Assessment**
+- Identify potential performance bottlenecks
+- Check for inefficient algorithms or data structures
+- Verify database query optimization when applicable
+- Assess impact on system resources
+- Check for unnecessary computations or API calls
+
+### 6. **Test Coverage Verification**
+- Ensure adequate test coverage (minimum 80% for new code)
+- Verify tests cover happy paths, edge cases, and error scenarios
+- Check that tests are maintainable and follow testing best practices
+- Ensure integration tests are present for cross-service changes
+- Validate that tests actually test the intended behavior
+
+### 7. **Documentation Completeness**
+- Verify README updates for user-facing changes
+- Check API documentation for public endpoints
+- Ensure code comments explain "why" not "what"
+- Verify architecture decision records (ADRs) for significant changes
+- Check that runbooks are updated for operational changes
+
+### 8. **Suggest Improvements**
+- Provide specific, actionable feedback
+- Include code examples when suggesting improvements
+- Explain the reasoning behind suggestions
+- Prioritize feedback (must-fix vs. nice-to-have)
+- Offer to pair or discuss complex suggestions
+
+### 9. **Final Approval Decision**
+- Approve if code meets all quality standards
+- Request changes for issues that must be addressed
+- Add blocking labels for critical issues
+- Comment approval or request changes explicitly
+
+## Code Review Quality Standards
+
+### Must Approve Only If:
+- ✅ All CI/CD checks pass (tests, linting, security scans)
+- ✅ Code follows team standards and patterns
+- ✅ Security vulnerabilities are addressed
+- ✅ Test coverage meets requirements
+- ✅ Documentation is updated appropriately
+- ✅ No breaking changes without proper deprecation
+
+### Must Request Changes For:
+- ❌ Security vulnerabilities or concerns
+- ❌ Missing or inadequate test coverage
+- ❌ Code that doesn't follow established patterns
+- ❌ Breaking changes without proper migration plan
+- ❌ Performance issues that could impact production
+- ❌ Missing critical documentation
+
+### Nice-to-Have Suggestions:
+- Code organization improvements
+- Better variable/function naming
+- Additional test cases for edge cases
+- Performance optimizations (if not critical)
+- Documentation enhancements
+- Refactoring opportunities (if not blocking)
+
+## Review Comment Guidelines
+
+### Effective Review Comments:
+- **Be Specific**: "Consider using Array.map() here instead of for loop for readability"
+- **Be Constructive**: "This could be more maintainable if we extract this logic into a helper function"
+- **Provide Context**: "We had a similar bug last month - this pattern helps prevent it"
+- **Include Examples**: Show what you mean with code snippets
+- **Ask Questions**: "What was the reason for choosing this approach?"
+
+### Avoid:
+- Vague feedback: "This could be better"
+- Personal attacks or criticism of the author
+- Nitpicking on minor style issues unless it's a standard violation
+- Blocking on optional improvements
+- Reviewing without understanding the context
+
+## Review Checklist
+
+Before approving a PR, verify:
+
+- [ ] PR description clearly explains what and why
+- [ ] Code changes align with PR description
+- [ ] Tests are added/updated and passing
+- [ ] Code follows team standards
+- [ ] Security considerations are addressed
+- [ ] Performance impact is acceptable
+- [ ] Documentation is updated
+- [ ] No hardcoded secrets or sensitive data
+- [ ] Error handling is appropriate
+- [ ] Code is readable and maintainable
+
+## Emergency Review Process
+
+For urgent production fixes:
+1. **Accelerate Timeline**: Review within 1-2 hours if possible
+2. **Focus on Critical Issues**: Prioritize security and correctness over style
+3. **Follow Up**: Schedule full review after urgent fix is deployed
+4. **Document Exception**: Note why expedited review was necessary
+
+## Integration with CI/CD
+
+Code reviews integrate with CI/CD pipelines:
+- **Automated Checks**: CI runs tests, linting, security scans before review
+- **Review Gating**: Require approval before merging to main/master
+- **Status Checks**: Ensure all status checks pass before approval
+- **Deployment**: Coordinate deployment timing with reviews
+
+## Continuous Improvement
+
+### Learn from Reviews:
+- **Common Patterns**: Identify frequently requested changes
+- **Update Standards**: Improve coding standards based on review feedback
+- **Document Patterns**: Create templates for common implementations
+- **Team Discussions**: Use PR comments to start broader discussions
+- **Knowledge Sharing**: Use reviews as teaching opportunities
+
+Remember: Code reviews are a collaborative process to improve code quality, share knowledge, and maintain consistency. Approach reviews with respect, curiosity, and a focus on helping teammates grow while maintaining high code quality standards.
