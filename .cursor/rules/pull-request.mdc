@@ -1,0 +1,162 @@
+---
+description: Pull request creation process and standards
+globs: ["**/*.md", "**/.github/**", "**/pull-requests/**"]
+alwaysApply: false
+---
+
+# Pull Request Creation Rules
+
+## PR Creation Workflow
+
+When creating a pull request, follow this process:
+
+### 1. **Pre-PR Checklist**
+
+Before opening a PR:
+- ✅ **Check for linked issues**: Ensure work is tied to an issue/ticket (use `Closes #123` or `Fixes #123` in PR body)
+- ✅ **Verify all changes are committed**: Check `git status` - no uncommitted changes should exist
+- ✅ **Commit any outstanding work**: If there are uncommitted changes, commit them with a clear message
+- ✅ **Ensure branch is up to date**: Sync with `main`/`master` if needed (`git pull origin main`)
+
+### 2. **Commit Outstanding Changes**
+
+If there are uncommitted changes:
+```bash
+# Stage all changes
+git add .
+
+# Commit with descriptive message
+git commit -m "feat: add feature description"
+```
+
+**Commit Message Format**:
+- Use conventional commits: `feat:`, `fix:`, `docs:`, `refactor:`, `test:`, `chore:`
+- Be descriptive but concise
+- Reference issue number if applicable: `feat: add user auth (#123)`
+
+### 3. **PR Title and Body Format**
+
+**PR Title**:
+- Use conventional commit format: `feat: Add user authentication`
+- Reference issue: `feat: Add user authentication (#123)`
+- Keep under 72 characters
+
+**PR Body** (use this template):
+```markdown
+## Description
+Brief description of what this PR does.
+
+## Related Issue
+Closes #123 (or Fixes #123, Relates to #123)
+
+## Changes Made
+- List of key changes
+- Bullet points work well
+- Be specific about what changed
+
+## Testing
+- [ ] Tests added/updated
+- [ ] Manual testing completed
+- [ ] All tests passing
+
+## Checklist
+- [ ] Code follows project standards
+- [ ] Documentation updated (if needed)
+- [ ] No breaking changes (or breaking changes documented)
+- [ ] PR approved by at least one reviewer (if not draft)
+```
+
+### 4. **PR Status Rules**
+
+**NEVER commit directly to main/master**:
+- Always open a PR, even for small changes
+- Use feature branches: `git checkout -b feature/description`
+
+**Draft vs Open PR**:
+- **Draft PR**: Work in progress, still being developed, not ready for review
+- **Open PR**: Work is complete, ready for review and merge
+
+**When to use Draft**:
+- Work is incomplete or in progress
+- Need feedback before completing
+- Still adding tests or documentation
+- Breaking changes that need discussion
+
+**When to use Open**:
+- Work is complete and tested
+- Ready for review
+- All checks passing
+- Documentation updated
+
+### 5. **PR Creation Command**
+
+```bash
+# Push branch to remote
+git push -u origin feature/branch-name
+
+# Open PR (via GitHub CLI if available)
+gh pr create --draft --title "feat: description" --body "PR body markdown"
+
+# Or use GitHub web interface after pushing
+```
+
+**For Draft PRs**:
+- Use `--draft` flag or select "Create draft pull request" in GitHub UI
+- Title should indicate WIP if not obvious: `[WIP] feat: description`
+
+**For Open PRs**:
+- Don't use `--draft` flag
+- Ensure all checks pass before requesting review
+- Tag appropriate reviewers if needed
+
+### 6. **Markdown Body Best Practices**
+
+Ensure PR body markdown parses correctly:
+- Use proper heading levels (`##` for sections, `###` for subsections)
+- Use code fences with language tags: ` ```typescript ` not just ` ``` `
+- Use checkboxes for checklists: `- [ ] Item`
+- Escape special characters if needed
+- Use proper list formatting (blank line before lists)
+- Keep links as proper markdown: `[text](url)`
+
+**Common Markdown Issues to Avoid**:
+- Missing blank lines before lists
+- Incorrect code fence syntax
+- Unescaped special characters in code blocks
+- Broken link syntax
+
+### 7. **Required PR Elements**
+
+Every PR must include:
+- ✅ Clear description of changes
+- ✅ Link to related issue (if applicable)
+- ✅ Testing information
+- ✅ Checklist of completion criteria
+
+### 8. **Post-Creation**
+
+After PR is created:
+- Verify PR body renders correctly on GitHub
+- Check that CI/CD checks are running
+- Request review from appropriate team members (for open PRs)
+- Monitor PR for feedback and respond promptly
+
+## Workflow Summary
+
+```
+1. Ensure issue is linked (or create one)
+2. Check git status - commit any outstanding changes
+3. Create feature branch if not already on one
+4. Push branch to remote
+5. Create PR with proper markdown body
+6. Set to draft if WIP, open if complete
+7. Verify markdown renders correctly
+8. Request review (if open PR)
+```
+
+## Violations
+
+If asked to commit directly to main:
+- **Stop**: Explain that all changes must go through PR process
+- **Redirect**: Offer to create a PR instead
+- **Document**: Note why PR process is required (code review, CI/CD, audit trail)

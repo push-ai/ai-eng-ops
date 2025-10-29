@@ -22,6 +22,12 @@ This directory contains modular **Cursor Rules** that enforce process-driven AI 
 - **Purpose**: Comprehensive test generation, coverage requirements, testing best practices
 - **Key Process**: Analyze Requirements → Design Test Strategy → Generate Tests → Verify Coverage → Run Tests → Document
 
+### 🔀 **`pull-request.mdc`** (Context-Aware)
+- **Scope**: Pull request creation, PR standards, git workflow, branch management
+- **When Active**: Working with markdown files, `.github/` directory, or when creating PRs
+- **Purpose**: Consistent PR creation process, proper issue linking, commit standards
+- **Key Process**: Check Issues → Commit Changes → Format PR Body → Create Draft/Open PR → Verify Markdown
+
 ### 🚀 **`deployment.mdc`** (Context-Aware)
 - **Scope**: CI/CD workflows, release processes, deployment pipelines, rollback procedures
 - **When Active**: Working with `/ci/`, `/deploy/`, `.github/workflows/`, `.gitlab-ci.yml`, deployment configs

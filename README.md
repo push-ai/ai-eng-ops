@@ -2,21 +2,21 @@
 
 > **Accelerate engineering velocity with AI-driven workflows, intelligent code reviews, and best-practice automation**
 
-This handbook empowers engineering teams to scale their operations using AI agents guided by structured markdown files and the Model Context Protocol (MCP). Whether you're a startup building your first product or an enterprise maintaining complex systems, this toolkit helps you deliver high-quality code faster with AI-assisted engineering workflows.
+This handbook empowers engineering teams to scale their operations using AI agents guided by structured markdown files, standardized processes, and engineering best practices. Whether you're a startup building your first product or an enterprise maintaining complex systems, this toolkit helps you deliver high-quality code faster with AI-assisted engineering workflows.
 
 ## ✨ Features
 
 - **📝 Markdown-Driven Engineering Workflows**: Define and standardize engineering processes using simple, version-controlled markdown files
-- **🧠 Model Context Protocol (MCP) Integration**: Leverage MCP to customize AI behavior for engineering-specific tasks and ensure contextually-aware code generation
 - **🎯 Process-Driven AI Operations**: Multi-step engineering execution with built-in code reviews, testing checkpoints, and quality gates
 - **📋 Cursor Rules Integration**: Enforce consistent AI behavior through project-specific rules and engineering best practices
 - **🔄 Dynamic Context Switching**: Seamlessly transition between different engineering domains (frontend, backend, DevOps, security)
 - **⚡ Real-time Documentation**: Keep technical documentation, runbooks, and architecture decisions automatically updated
+- **🔌 Tool Integration Support**: Works with various AI tool protocols (including MCP) to connect with GitHub, CI/CD, monitoring, and other engineering tools
 
 ## 🚀 How It Works
 
 1. **📁 Set Up Your Repository**: Clone this repository and organize your engineering-specific markdown files
-2. **🏷️ Define Context and Standards**: Use MCP to tag documents and establish AI behavior patterns for code generation and reviews
+2. **🏷️ Define Context and Standards**: Establish AI behavior patterns for code generation and reviews through markdown documentation and Cursor rules
 3. **🤖 Generate Code & Documentation**: Let AI create production-ready code, tests, and technical documentation that align with your team's standards
 4. **🔧 Iterate and Refine**: Continuously improve your templates and processes based on AI output and team feedback
 
@@ -26,10 +26,10 @@ This handbook empowers engineering teams to scale their operations using AI agen
 Your team submits a pull request. The AI automatically reviews code against your team's standards, checks for security vulnerabilities, suggests improvements, and ensures consistency with existing patterns—turning every PR into a learning opportunity.
 
 ### Automated Test Generation
-Connect your test framework to MCP. When you write new features, the AI generates comprehensive test suites including unit tests, integration tests, and edge cases based on your team's testing standards and coverage requirements.
+When you write new features, the AI generates comprehensive test suites including unit tests, integration tests, and edge cases based on your team's testing standards and coverage requirements. Connect to your test frameworks and CI/CD systems for automated test execution and coverage tracking.
 
 ### Intelligent Incident Response
-When production issues occur, the AI accesses your runbooks, recent changes, and monitoring data via MCP. It generates incident reports, suggests remediation steps, and documents post-mortems following your team's established processes.
+When production issues occur, the AI accesses your runbooks, recent changes, and monitoring data from your engineering tools. It generates incident reports, suggests remediation steps, and documents post-mortems following your team's established processes.
 
 ### Architecture Decision Records (ADRs)
 Every significant technical decision gets automatically documented. The AI helps draft ADRs by pulling context from code, discussions, and existing decisions, ensuring nothing gets lost as teams scale.
@@ -39,27 +39,15 @@ Technical documentation that actually reflects reality. The AI analyzes code cha
 
 ## 🛠️ Getting Started
 
-### Understanding Cursor v1 and MCP for Engineering
+### The Foundation: Structured Engineering Context
 
-**Cursor v1** represents a revolutionary leap in AI-powered development environments. At its core is the [**Model Context Protocol (MCP)**](https://docs.cursor.com/context/model-context-protocol)—an open standard developed by [Anthropic](https://www.anthropic.com/news/model-context-protocol) that standardizes how AI applications provide context and tools to Large Language Models.
-
-## Why MCP is a Game-Changer for Engineering Operations
-
-Most AI coding assistants today are powerful but isolated—they don't have access to your codebase structure, deployment pipelines, test suites, or monitoring systems. [MCP solves this fundamental problem](https://betterstack.com/community/guides/ai/mcp-explained/) by acting as a **"universal connector"** that allows AI to seamlessly access and interact with your engineering ecosystem.
-
-**The Traditional Problem**: Before MCP, connecting AI to each engineering tool required custom integrations. Want your AI to access CI/CD pipelines? Custom code. Pull metrics from monitoring? Another integration. Read deployment runbooks? Yet another connector.
-
-**The MCP Solution**: [As explained by Anthropic](https://www.anthropic.com/news/model-context-protocol), MCP "provides a universal, open standard for connecting AI systems with data sources, replacing fragmented integrations with a single protocol." Think of MCP as [**USB-C for AI applications**](https://www.descope.com/learn/post/mcp)—one standardized way to connect to everything.
-
-## The Power of Markdown + MCP: Engineering Context in Action
-
-This handbook leverages a revolutionary approach: **structured markdown files + MCP integration**. Here's why this combination is transformative for engineering teams:
+This handbook leverages a powerful approach: **structured markdown files + standardized engineering processes**. Here's why this combination is transformative for engineering teams:
 
 ### 1. **Layered Engineering Context Architecture**
 Your engineering context lives in multiple layers:
 - **Static Context**: Coding standards, architecture patterns, tech stack guidelines (markdown files)
-- **Dynamic Context**: Real-time test results, deployment status, monitoring metrics (MCP servers)
-- **Interactive Tools**: Ability to run tests, deploy code, create tickets, review PRs (MCP tools)
+- **Dynamic Context**: Real-time test results, deployment status, monitoring metrics (via tool integrations)
+- **Interactive Tools**: Ability to run tests, deploy code, create tickets, review PRs (via AI tool protocols)
 
 ### 2. **Intelligent Context Blending**
 When you ask AI to "implement a new API endpoint," the system automatically:
@@ -67,11 +55,11 @@ When you ask AI to "implement a new API endpoint," the system automatically:
 # AI's Context Awareness Process:
 1. Reads coding-standards.md (style and patterns)
 2. Accesses architecture-decisions.md (system design principles)
-3. Queries test results via MCP (current test coverage)
-4. Pulls recent changes via MCP (avoiding conflicts)
+3. Queries test results from CI/CD (current test coverage)
+4. Pulls recent changes from version control (avoiding conflicts)
 5. Generates code following team patterns
 6. Creates tests matching your suite structure
-7. Can submit PR via MCP (if desired)
+7. Can submit PR via integration (if configured)
 ```
 
 ### 3. **Version-Controlled Engineering Knowledge**
@@ -82,7 +70,7 @@ Unlike traditional documentation, your engineering context is:
 - **Transparent**: See exactly what context influenced AI code generation
 
 ### 4. **Scalable Context Management**
-As [noted by industry experts](https://medium.com/@tinholt/the-ai-game-changer-how-the-model-context-protocol-is-redefining-business-a50a7711ef8b), "MCP transforms AI from a passive tool into an active business driver." Your markdown files provide the foundation, while MCP connections enable real-time adaptation and action across your entire engineering stack.
+Your markdown files provide the foundation, while tool integrations enable real-time adaptation and action across your entire engineering stack. The key is maintaining consistent standards regardless of which tools you connect.
 
 ## 🔄 Process-Driven AI Engineering Operations
 
@@ -239,48 +227,35 @@ Reference coding-standards.md and architecture-decisions.md for consistency.
 
 This systematic approach ensures that AI engineering operations are deliberate, reviewable, and consistently high-quality—transforming AI from a quick-answer tool into a reliable engineering process engine.
 
-### MCP Architecture in Cursor
-
-Cursor's MCP implementation uses a **client/server model** with three key components:
-
-- **MCP Host**: Cursor IDE itself, containing orchestration logic
-- **MCP Client**:可 Converts user requests into structured formats the protocol can process  
-- **MCP Server**: External services (GitHub, CI/CD, monitoring) that provide context to the AI
-
-Cursor supports **three transport types** for MCP servers:
-
-| Transport | Environment | Deployment | Users | Best For |
-|-----------|-------------|------------|-------|----------|
-| **stdio** | Local | Cursor-managed | Single user | Local development, simple tools |
-| **SSE** | Local/Remote | Server deployment | Multiple users | Real-time data, distributed teams |
-| **HTTP** | Local/Remote | Server deployment | Multiple users | Enterprise integrations |
-
 ### Prerequisites
 
-- **[Cursor IDE](https://cursor.sh/)** with MCP support (latest version)
+- **[Cursor IDE](https://cursor.sh/)** (latest version) or another AI-powered code editor
 - **Git** for version control  
-- **Node.js/Python** (for custom MCP server development)
 - Basic familiarity with **markdown syntax** and **JSON configuration**
+- (Optional) Tool integration setup for connecting to GitHub, CI/CD, monitoring systems
 
 ### Quick Start
 
 #### 1. Clone and Set Up Repository
 ```bash
-git clone https://github.com/your-username/ai-eng-ops-handbook.git
-cd ai-eng-ops-handbook
+   git clone https://github.com/push-ai/ai-eng-ops.git
+   cd ai-eng-ops
 ```
 
-#### 2. Configure MCP Servers in Cursor
+#### 2. Connect Your Engineering Tools (Optional)
 
-**One-Click Installation** (Recommended):
-1. Open Cursor Settings → **Features** → **MCP**
-2. Browse the [curated MCP server collection](https://docs.cursor.com/context/model-context-protocol#one-click-installation)
-3. Install popular servers with OAuth support for instant authentication
+This handbook works best when AI can access your engineering tools. Depending on your AI platform, you can connect to:
 
-**Manual Configuration**:
-Create MCP configuration files based on your needs:
+- **Version Control**: GitHub, GitLab, Bitbucket
+- **CI/CD Systems**: Jenkins, GitHub Actions, GitLab CI, CircleCI
+- **Monitoring**: Datadog, New Relic, Prometheus
+- **Project Management**: Linear, Jira, GitHub Issues
+- **Communication**: Slack, Microsoft Teams
 
-**Project-Specific** (`.cursor/mcp.json`):
+**For Cursor IDE Users** (using Model Context Protocol):
+If you're using Cursor IDE, you can optionally configure tool integrations via MCP. See [Cursor's MCP documentation](https://docs.cursor.com/context/model-context-protocol) for setup instructions.
+
+**Example Configuration** (`.cursor/mcp.json`):
 ```json
 {
   "mcpServers": {
@@ -290,42 +265,18 @@ Create MCP configuration files based on your needs:
       "env": {
         "GITHUB_PERSONAL_ACCESS_TOKEN": "your-token"
       }
-    },
-    "postgres": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-postgres"],
-      "env": {
-        "POSTGRES_CONNECTION_STRING": "postgresql://..."
-      }
     }
   }
 }
 ```
 
-**Global Configuration** (`~/.cursor/mcp.json`):
-```json
-{
-  "mcpServers": {
-    "web-search": {
-      "command": "npx",
-      "args": ["-y", "@smithery/cli", "run", "@mzxrai/mcp-webresearch", "--config", "{}"]
-    },
-    "slack": {
-      "command": "npx", 
-      "args": ["-y", "@modelcontextprotocol/server-slack"],
-      "env": {
-        "SLACK_BOT_TOKEN": "xoxb-your-token"
-      }
-    }
-  }
-}
-```
+Note: Tool integrations are optional. The core value of this handbook comes from well-structured markdown files and Cursor rules that guide AI behavior.
 
 #### 3. Set Up Your Engineering Context
 
 **Create Template Structure**:
 ```
-ai-eng-ops-handbook/
+ai-eng-ops/
 ├── templates/
 │   ├── code-review/
 │   ├── testing/
@@ -337,7 +288,7 @@ ai-eng-ops-handbook/
 │   ├── security/
 │   └── standards/
 └── .cursor/
-    └── mcp.json
+    └── rules/
 ```
 
 **Define Coding Standards** (`contexts/standards/coding-standards.md`):
@@ -394,13 +345,14 @@ The handbook includes modular process rules organized by engineering domains:
 
 This modular approach ensures only relevant rules load based on your current work context, maximizing efficiency while maintaining process discipline.
 
-#### 5. Using MCP in Cursor
+#### 5. Using AI with Your Engineering Context
 
-Once configured, Cursor's **Composer Agent** will automatically use MCP tools when relevant. You can:
+Once set up, your AI assistant will automatically use the context files and rules you've defined. You can:
 
-- **Let AI decide**: The agent automatically selects appropriate tools
-- **Explicit requests**: "Use the GitHub API to check PR status..." 
-- **Tool management**: Enable/disable specific MCP tools in settings
+- **Ask for code**: "Implement user authentication endpoint with JWT, following our security standards"
+- **Request reviews**: "Review this PR against our coding standards"
+- **Generate tests**: "Create test suite for the new API endpoint"
+- **Documentation**: "Update API documentation for the changes I just made"
 
 **Example Workflow**:
 ```markdown
@@ -410,12 +362,14 @@ following our security standards and existing API patterns.
 
 # AI will automatically:
 1. Access coding-standards.md (style and patterns)
-2. Pull security requirements via MCP
-3. Check existing API patterns via GitHub MCP
+2. Pull security requirements from contexts/security/
+3. Check existing API patterns from codebase
 4. Generate code following team standards
 5. Create tests matching your suite structure
 6. Update API documentation
 ```
+
+If you've configured tool integrations, the AI can also access real-time data from your engineering tools.
 
 #### 6. Advanced Configuration
 
@@ -428,50 +382,22 @@ SLACK_BOT_TOKEN=xoxb-123
 CI_API_KEY=secret_xyz
 ```
 
-**Custom Engineering MCP Server** (Example in TypeScript):
-```typescript
-// engineering-context-server.ts
-import { Server } from "@modelcontextprotocol/sdk/server/index.js";
-import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
-
-const server = new Server({
-  name: "engineering-context",
-  version: "1.0.0"
-}, {
-  capabilities: {
-    tools: {}
-  }
-});
-
-server.setRequestHandler(ListToolsRequestSchema, async () => ({
-  tools: [{
-    name: "get_code_metrics",
-    description: "Retrieve code quality metrics from SonarQube",
-    inputSchema: {
-      type: "object",
-      properties: {
-        project: { type: "string" }
-      }
-    }
-  }]
-}));
-
-// Tool implementation...
-```
+**Custom Tool Integration** (Example):
+If you want to connect custom engineering tools, you can create integrations using your AI platform's supported protocols. This is optional and depends on your specific tooling needs.
 
 ### Testing Your Setup
 
-1. **Verify MCP Connection**: Check Cursor Settings → Features → MCP to see active servers
-2. **Test Tool Access**: In Cursor Chat, ask "What MCP tools are available?"
+1. **Verify Context Files**: Ensure your markdown files in `contexts/` are properly formatted
+2. **Test Cursor Rules**: Check that `.cursor/rules/*.mdc` files are being loaded
 3. **Generate Sample Code**: Request AI to create code using your engineering context
 4. **Iterate and Refine**: Adjust templates and configurations based on AI output quality
 
 ### Next Steps
 
-- Explore the [MCP server directory](https://smithery.ai) for additional integrations
-- Set up webhooks for real-time context updates from CI/CD systems
-- Create custom MCP servers for proprietary engineering systems  
-- Implement automated code review workflows using MCP-driven AI
+- Review and customize the templates in `templates/` for your team's needs
+- Set up your engineering context files with your actual standards and patterns
+- Configure tool integrations if you want real-time data from your engineering stack
+- Start using AI workflows for code reviews, test generation, and documentation
 
 ## 🔧 Fork & Customize: Your Engineering Blueprint
 
@@ -486,17 +412,17 @@ This handbook is designed as a **starting point and blueprint** that you'll fork
 1. **Fork the Repository**
    ```bash
    # Fork on GitHub, then clone your version
-   git clone https://github.com/your-username/ai-eng-ops-handbook.git
-   cd ai-eng-ops-handbook
+   git clone https://github.com/push-ai/ai-eng-ops.git
+   cd ai-eng-ops
    
-   # Make it yours
-   git remote add upstream https://github.com/original-repo/ai-eng-ops-handbook.git
+   # Fork it for your team
+   git remote add upstream https://github.com/push-ai/ai-eng-ops.git
    ```
 
 2. **Customize the Core Identity**
    ```bash
    # Update project references
-   find . -name "*.md" -exec sed -i 's/ai-eng-ops-handbook/your-team-eng-handbook/g' {} +
+   find . -name "*.md" -exec sed -i 's/ai-eng-ops/your-team-eng-handbook/g' {} +
    ```
 
 ### Step 2: Define Your Engineering Context
@@ -541,38 +467,16 @@ Create files for your specific engineering processes:
 - `incident-response.md`
 - `testing-strategy.md`
 
-### Step 3: Connect Your Engineering Tools
+### Step 3: Connect Your Engineering Tools (Optional)
 
-Customize the MCP configuration for your specific tools:
+Connect to your engineering tools using your AI platform's supported integration methods. This enables real-time data access and workflow automation. Examples include:
 
-```json
-{
-  "mcpServers": {
-    "github": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-github"],
-      "env": {
-        "GITHUB_PERSONAL_ACCESS_TOKEN": "your-token"
-      }
-    },
-    "jenkins": {
-      "command": "npx", 
-      "args": ["-y", "jenkins-mcp-server"],
-      "env": {
-        "JENKINS_URL": "https://ci.yourcompany.com",
-        "JENKINS_API_TOKEN": "your-token"
-      }
-    },
-    "datadog": {
-      "command": "npx",
-      "args": ["-y", "datadog-mcp-server"],
-      "env": {
-        "DATADOG_API_KEY": "your-key"
-      }
-    }
-  }
-}
-```
+- **Version Control**: GitHub, GitLab integrations
+- **CI/CD**: Jenkins, GitHub Actions, CircleCI
+- **Monitoring**: Datadog, New Relic, Prometheus
+- **Project Management**: Linear, Jira
+
+Configure these based on your AI platform's capabilities. Tool integrations enhance the handbook but aren't required—the core value comes from structured context files and standardized processes.
 
 ### Step 4: Domain-Specific Customization
 
@@ -618,42 +522,9 @@ Customize the MCP configuration for your specific tools:
 │   └── monitoring-strategies.md
 ```
 
-### Step 5: Create Custom MCP Servers
+### Step 5: Create Custom Tool Integrations (Optional)
 
-Build MCP servers for your proprietary systems:
-
-```typescript
-// custom-engineering-server.ts
-import { Server } from "@modelcontextprotocol/sdk/server/index.js";
-
-const server = new Server({
-  name: "your-company-engineering",
-  version: "1.0.0"
-});
-
-// Tool to get current build status
-server.tool("get_build_status", 
-  "Retrieve current CI/CD build status", 
-  {
-    project: z.string(),
-    branch: z.string().optional()
-  },
-  async (params) => {
-    const status = await getBuildStatus(params.project, params.branch);
-    return {
-      content: [{ type: "text", text: JSON.stringify(status, null, 2) }]
-    };
-  }
-);
-
-// Resource for real-time engineering metrics
-server.resource("engineering://metrics", 
-  async () => {
-    const metrics = await getEngineeringMetrics();
-    return `# Engineering Metrics\n\n${metrics}`;
-  }
-);
-```
+If you need to connect proprietary systems, create custom integrations using your AI platform's supported protocols. This enables seamless access to internal tools and data sources. The implementation details depend on your chosen AI platform and integration protocol.
 
 ### Step 6: Implement AI-Driven Workflows
 
@@ -662,10 +533,10 @@ Create automated workflows that demonstrate AI's engineering value:
 #### Automated Code Review
 ```markdown
 # Workflow: PR Review Automation
-1. AI receives PR notification via MCP integration
+1. AI receives PR notification (via webhook or tool integration)
 2. Reads coding standards and patterns from markdown files
-3. Analyzes code changes via GitHub MCP
-4. Checks test coverage via CI/CD MCP
+3. Analyzes code changes from version control
+4. Checks test coverage from CI/CD systems
 5. Generates review comments following team standards
 6. Suggests improvements with code examples
 ```
@@ -673,9 +544,9 @@ Create automated workflows that demonstrate AI's engineering value:
 #### Intelligent Test Generation
 ```markdown
 # Workflow: Test Suite Generation
-1. AI analyzes new code changes via MCP
+1. AI analyzes new code changes
 2. Reads testing strategy and patterns from markdown
-3. Checks existing test coverage via CI/CD MCP
+3. Checks existing test coverage from CI/CD systems
 4. Generates comprehensive test suite
 5. Ensures tests follow team patterns and standards
 6. Submits tests as part of PR
@@ -714,7 +585,7 @@ The engineering teams that invest in structured context today will have AI syste
 ## 📚 Project Structure
 
 ```
-ai-eng-ops-handbook/
+ai-eng-ops/
 ├── templates/           # Reusable markdown templates
 │   ├── code-review/    # Code review checklists and standards
 │   ├── testing/        # Test templates and strategies
