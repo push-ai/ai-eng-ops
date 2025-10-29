@@ -1,14 +1,30 @@
 """
-Shopping cart data structure implementation.
+Shopping cart data structure implementation with strong typing.
 
 This module provides a ShoppingCart class that maintains a collection of items
 with prices and calculates totals.
+
+CRITICAL FOR AI: Strong type annotations enable AI to understand exactly what
+types are expected, preventing confusion and incorrect code generation.
 
 Invariants:
 - All items in cart have non-negative prices
 - No duplicate items (by name)
 - Cart total is always sum of item prices
 """
+
+from typing import TypedDict, List, Tuple
+
+
+class CartItem(TypedDict):
+    """
+    Typed definition of a cart item.
+    
+    This TypedDict provides strong typing for the item structure, enabling AI
+    to understand exactly what keys and types are expected.
+    """
+    item: str
+    price: float
 
 
 class ShoppingCart:
@@ -34,31 +50,35 @@ class ShoppingCart:
         0.0
     """
     
-    def __init__(self):
+    def __init__(self) -> None:
         """
         Initialize an empty shopping cart.
         
         The cart starts with no items and a total of 0.0.
         """
-        self._items = []  # Protected internal state
+        self._items: List[CartItem] = []  # Protected internal state with type annotation
     
     @property
-    def items(self):
+    def items(self) -> Tuple[CartItem, ...]:
         """
         Get a read-only view of cart items.
         
         Returns:
-            tuple: Tuple of item dictionaries. This prevents external modification.
+            Tuple[CartItem, ...]: Tuple of typed cart items. This prevents external modification.
+            The TypedDict type enables AI to understand the exact structure.
         """
         return tuple(self._items)
     
-    def add_item(self, item_name, price):
+    def add_item(self, item_name: str, price: float) -> None:
         """
         Add an item to the shopping cart.
         
+        STRONG TYPING: Parameters are explicitly typed (str, float), enabling AI
+        to know exactly what types to pass without guessing.
+        
         Args:
-            item_name (str): Name of the item. Must be non-empty string.
-            price (float): Price of the item. Must be >= 0.
+            item_name: Name of the item. Must be non-empty string.
+            price: Price of the item. Must be >= 0.
         
         Raises:
             TypeError: If item_name is not a string or price is not numeric.
@@ -88,20 +108,24 @@ class ShoppingCart:
             raise ValueError(f"Item '{item_name}' already exists in cart. Use update_item() to change price.")
         
         # Add item (maintains invariants)
-        self._items.append({
+        # TypedDict ensures structure matches CartItem type
+        item: CartItem = {
             "item": item_name.strip(),
             "price": float(price)
-        })
+        }
+        self._items.append(item)
     
-    def remove_item(self, item_name):
+    def remove_item(self, item_name: str) -> bool:
         """
         Remove an item from the shopping cart.
         
+        STRONG TYPING: Explicit return type (bool) tells AI exactly what to expect.
+        
         Args:
-            item_name (str): Name of the item to remove.
+            item_name: Name of the item to remove.
         
         Returns:
-            bool: True if item was removed, False if item was not found.
+            True if item was removed, False if item was not found.
         
         Raises:
             TypeError: If item_name is not a string.
@@ -127,16 +151,19 @@ class ShoppingCart:
         
         return False
     
-    def update_item_price(self, item_name, new_price):
+    def update_item_price(self, item_name: str, new_price: float) -> bool:
         """
         Update the price of an existing item.
         
+        STRONG TYPING: Both parameters and return type are explicit, enabling AI
+        to generate correct code without type confusion.
+        
         Args:
-            item_name (str): Name of the item to update.
-            new_price (float): New price. Must be >= 0.
+            item_name: Name of the item to update.
+            new_price: New price. Must be >= 0.
         
         Returns:
-            bool: True if item was updated, False if item was not found.
+            True if item was updated, False if item was not found.
         
         Raises:
             TypeError: If inputs are invalid types.
@@ -167,12 +194,15 @@ class ShoppingCart:
         
         return False
     
-    def get_total(self):
+    def get_total(self) -> float:
         """
         Calculate the total price of all items in the cart.
         
+        STRONG TYPING: Return type explicitly declares float, so AI knows
+        the exact type of the result.
+        
         Returns:
-            float: Sum of all item prices. Returns 0.0 for empty cart.
+            Sum of all item prices. Returns 0.0 for empty cart.
         
         Examples:
             >>> cart = ShoppingCart()
@@ -185,25 +215,25 @@ class ShoppingCart:
         total = sum(item["price"] for item in self._items)
         return float(total)
     
-    def get_item_count(self):
+    def get_item_count(self) -> int:
         """
         Get the number of items in the cart.
         
         Returns:
-            int: Number of items in cart.
+            Number of items in cart.
         """
         return len(self._items)
     
-    def is_empty(self):
+    def is_empty(self) -> bool:
         """
         Check if the cart is empty.
         
         Returns:
-            bool: True if cart has no items, False otherwise.
+            True if cart has no items, False otherwise.
         """
         return len(self._items) == 0
     
-    def clear(self):
+    def clear(self) -> None:
         """
         Remove all items from the cart.
         
@@ -211,19 +241,19 @@ class ShoppingCart:
         """
         self._items.clear()
     
-    def _item_exists(self, item_name):
+    def _item_exists(self, item_name: str) -> bool:
         """
         Check if an item exists in the cart (private helper method).
         
         Args:
-            item_name (str): Name of the item to check.
+            item_name: Name of the item to check.
         
         Returns:
-            bool: True if item exists, False otherwise.
+            True if item exists, False otherwise.
         """
         return any(item["item"] == item_name.strip() for item in self._items)
     
-    def __repr__(self):
+    def __repr__(self) -> str:
         """Return string representation of the cart."""
         return f"ShoppingCart(items={len(self._items)}, total=${self.get_total():.2f})"
 

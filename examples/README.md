@@ -87,13 +87,14 @@ examples/
 ### Level 01: Foundation
 Focuses on fundamental skills where AI often struggles:
 
-- **01-simple-function** - Creating a single, well-tested function (Coming soon)
-- **02-utility-module** - Building a reusable utility module (Coming soon)
-- **03-data-structure** - Implementing a data structure/class (Coming soon)
+- **01-simple-function** - Creating a single, well-tested function
+- **02-utility-module** - Building a reusable utility module
+- **03-data-structure** - Implementing a data structure/class with strong typing
 - **04-testing** - Creating effective tests that help AI iterate through edge cases
 - **05-bug-fix** - Reproducing bugs locally, fixing with TDD approach
 - **06-error-logs** - Crafting error messages that help AI self-correct
 - **07-logging** - Setting up logging for faster root cause identification
+- **08-documentation** - Providing context through documentation to enable AI accuracy
 
 ### Level 02: Features (Coming Soon)
 - API endpoints

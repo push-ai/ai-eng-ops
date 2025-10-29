@@ -1,10 +1,12 @@
 """
 Comprehensive tests for ShoppingCart data structure.
-Demonstrates how tests verify invariants and behavior.
+Demonstrates how tests verify invariants, behavior, and TYPE ENFORCEMENT.
+
+CRITICAL: Tests verify that strong typing prevents AI from passing wrong types.
 """
 
 import pytest
-from main import ShoppingCart
+from main import ShoppingCart, CartItem
 
 
 class TestShoppingCartInitialization:
@@ -28,6 +30,23 @@ class TestShoppingCartInitialization:
         # Should not be able to modify through property
         with pytest.raises(AttributeError):
             items.append({"item": "Banana", "price": 0.75})
+    
+    def test_items_property_returns_typed_items(self):
+        """Test that items property returns properly typed CartItem objects."""
+        cart = ShoppingCart()
+        cart.add_item("Apple", 1.50)
+        
+        items = cart.items
+        assert len(items) == 1
+        
+        # Verify structure matches CartItem TypedDict
+        item = items[0]
+        assert "item" in item
+        assert "price" in item
+        assert isinstance(item["item"], str)
+        assert isinstance(item["price"], float)
+        
+        # Type checker would validate this matches CartItem structure
 
 
 class TestAddItem:
@@ -88,11 +107,17 @@ class TestAddItem:
             cart.add_item(None, 1.50)
     
     def test_add_item_non_numeric_price_raises_error(self):
-        """Test that non-numeric price raises TypeError."""
+        """Test that non-numeric price raises TypeError.
+        
+        CRITICAL: This test verifies that strong typing prevents AI from
+        passing wrong types. Without type hints, AI might pass strings.
+        """
         cart = ShoppingCart()
         
         with pytest.raises(TypeError, match="must be numeric"):
-            cart.add_item("Apple", "1.50")
+            cart.add_item("Apple", "1.50")  # Wrong type: str instead of float
+        
+        # Strong typing would catch this at development time too
     
     def test_add_duplicate_item_raises_error(self):
         """Test that adding duplicate item raises ValueError."""
